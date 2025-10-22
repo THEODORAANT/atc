@@ -1,0 +1,15 @@
+<h2>Hey, {{customer.customerFirstName}}, here's a discount for you!</h2>
+
+{% if promo.promoType == 'CUSTOMER' %}
+
+<p>Your recent <a href="https://grabaperch.com/">Perch</a> license qualified for a discount on your next order as part of our customer referral programme. This is because you used a referral code when you created your account. The friend who referred you gets a discount too!</p>
+
+{% else %}
+
+<p>Someone you referred to <a href="https://grabaperch.com/">Perch</a> using your referral code has bought a license, so you qualify for a discount on your next order! The friend you referred gets a discount too.</p>
+
+{% endif %}
+
+<p><b>Your discount code is <a href="https://grabaperch.com/code/{{promo.promoCode}}">{{promo.promoCode}}</a>.</b></p>
+
+<p>You can keep track of your discount codes in <a href="https://grabaperch.com/account">your account</a>.</p>

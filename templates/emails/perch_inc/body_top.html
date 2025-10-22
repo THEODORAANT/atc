@@ -1,0 +1,28 @@
+<body style="background-image: url(https://media.grabaperch.com/email/demo/common/sky.gif);background-repeat: repeat-x;-webkit-text-size-adjust: none;margin: 0;padding: 0;font: 12px/1.3 Helvetica, Arial, sans-serif;color: #334f57;background-color: #ffffff;width: 100%;">
+
+<table border="0" cellspacing="0" cellpadding="0" class="wrapper" style="width:600px">
+	<tr>
+		<td>
+        	<table border="0" cellspacing="0" cellpadding="0">
+				{% if permission %}
+				<tr>
+					<td class="permission">
+						<p>{{permission}}</p>
+                    </td>
+				</tr>
+				{% endif %}
+								<tr>
+					<td class="header" style="padding: 20px 0 0 20px;">
+                    	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        	<tr>
+                       		 	<td colspan="2" valign="top" align="center"><img src="https://media.grabaperch.com/email/demo/common/logo.png" alt="Perch" width="185" height="50" style="height: auto;max-width: 100%;"></td>
+                            </tr>
+                        </table>
+                    </td>
+		  		</tr>
+				<tr>
+					<td>
+                    	<table width="560" class="content" border="0" cellspacing="0" cellpadding="0" style="margin: 20px;padding:20px;border: 1px dashed #cacbcc;border-radius:5px;">
+							<tr>
+								<td>
+                                    <div class="repeater" style="padding: 1.2em 0 1em 0;">

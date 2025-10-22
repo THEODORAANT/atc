@@ -1,0 +1,19 @@
+<p>Hi {{userFirstName}}, good news! Your personalised Perch CMS demo is ready.</p>
+
+<h2>Your site details</h2>
+
+{% autoescape false %}
+	{{site_string}}
+{% endautoescape %}
+
+
+<h2>Your login details</h2>
+
+<p>You can login to the admin control panel using:</p>
+
+<p>
+<b>Username:</b> {{demoUsername}} <br />
+<b>Password:</b> {{demoPasswordClear}}
+</p>
+
+<p>Your demo site will be active for 72 hours. After that time the account will be wiped clean of any data. You can sign up for as many demos as often as you wish.</p>

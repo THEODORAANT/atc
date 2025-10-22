@@ -1,0 +1,65 @@
+<p>Dear, {{customer.customerFirstName}}. This email is send to inform you that your subscription has been suspended due to a payment problem. Please visit your  <a href="https://account.perchcms.com/subscriptions/payment/{{subscription.subID}}">account</a> to update your payment details and ensure continued access.</p>
+
+
+<h3>Your subscription</h3>
+
+<p>This subscription was placed on {{subscription.subCreated|date('d F Y', timezone="Europe/London")}} and has the Stripe ID <b>{{subscription.subStripeID}}</b>.</p>
+<table class="invoice">
+    <tr>
+        <th>Qty</th>
+        <th>Item</th>
+       <!-- <th>Price</th>
+        <th>Total</th>-->
+    </tr>
+    <tr>
+        <td>{{subscription.subQty}}</td>
+        <td>{{subscription.subItem}}</td>
+
+    </tr>
+</table>
+
+<h3>Where to get your files</h3>
+
+<p>Log into <a href="https://grabaperch.com/account">your account</a> using your email address and the password you chose when you signed up.</p>
+<p>You can download the latest files there. You will also find full VAT invoices for any orders in your account.</p>
+<p>At the same time, you need to set up at least one domain name in order to start using Perch. All that can be done via your account online.</p>
+
+<h3>How to get started</h3>
+
+<p>All the information you need to get started can be found on our <a href="https://docs.grabaperch.com/">documentation site</a>.</p>
+<p>If you get stuck, we're here to help. Pop along to our <a href="https://grabaperch.com/support">support site</a> where you can post questions and get assistance.</p>
+
+<h3>About you</h3>
+<p>
+    {{customer.customerFirstName}} {{customer.customerLastName}}<br />
+    {% if customer.customerCompany %}{{customer.customerCompany}}<br />{% endif %}
+    {% if customer.countryName %}{{customer.countryName}}<br />{% endif %}
+    {% if customer.customerStreetAdr1 %}{{customer.customerStreetAdr1}}<br />{% endif %}
+    {% if customer.customerStreetAdr2 %}{{customer.customerStreetAdr2}}<br />{% endif %}
+    {% if customer.customerLocality %}{{customer.customerLocality}}<br />{% endif %}
+    {% if customer.customerRegion %}{{customer.customerRegion}}<br />{% endif %}
+    {% if customer.customerPostalCode %}{{customer.customerPostalCode}}<br />{% endif %}
+    {% if customer.customerVATnumber %}{{customer.customerVATnumber}}{% endif %}
+</p>
+
+<style type="text/css">
+    .keys,
+    .keys li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
+    }
+    .invoice {
+        width: 100%;
+    }
+    .invoice th,
+    .invoice td {
+        text-align: left;
+        border-bottom: 1px solid #cacbcc;
+        padding: 2px 5px;
+    }
+    .total {
+        text-align: right;
+    }
+</style>

@@ -1,0 +1,89 @@
+	<p>Thank you for choosing <a href="https://grabaperch.com/">Perch</a>, {{customer.customerFirstName}}. This email contains a copy of your license keys and details of the order and where to get your files. You might want to keep it for reference, although all this information is available through your <a href="https://grabaperch.com/account">account</a>.</p>
+
+	{% if licenses %}
+	<h3>Your license keys</h3>
+	<ul class="keys">
+        {% for license in licenses %}
+            <li>{{license.licenseKey}}</li>
+        {% endfor %}
+    </ul>
+	{% endif %}
+
+	<h3>Your order</h3>
+
+	<p>This order was placed on {{order.orderDate|date('d F Y', timezone="Europe/London")}} and has the invoice number <b>{{order.orderInvoiceNumber}}</b>.</p>
+
+	<table class="invoice">
+		<tr>
+			<th>Qty</th>
+			<th>Item</th>
+			<th>Price</th>
+			<th>Total</th>
+		</tr>
+	{% for item in order_items %}
+		<tr>
+        	<td>{{item.itemQty}}</td>
+        	<td>{{item.itemDescription}}</td>
+        	<td class="total">{{item.itemUnitPrice|number_format(2)}}</td>
+        	<td class="total">{{item.itemTotalPrice|number_format(2)}}</td>
+    	</tr>
+    {% endfor %}
+        <tr>
+        	<td></td>
+        	<td colspan="2">VAT @ {{order.orderVATrate}}%</td>
+        	<td class="total">{{order.orderVAT|number_format(2)}}</td>
+        </tr>
+        <tr>
+        	<td></td>
+        	<td><b>Total</b></td>
+        	<td><b>{{order.orderCurrency}}</b></td>
+        	<td class="total"><b>{{order.orderValue|number_format(2)}}</b></td>
+        </tr>
+	</table>
+
+	<h3>Where to get your files</h3>
+
+	<p>Log into <a href="https://grabaperch.com/account">your account</a> using your email address and the password you chose when you signed up.</p>
+	<p>You can download the latest files there. You will also find full VAT invoices for any orders in your account.</p>
+	<p>At the same time, you need to set up at least one domain name in order to start using Perch. All that can be done via your account online.</p>
+
+	<h3>How to get started</h3>
+
+	<p>All the information you need to get started can be found on our <a href="https://docs.grabaperch.com/">documentation site</a>.</p>
+	<p>If you get stuck, we're here to help. Pop along to our <a href="https://grabaperch.com/support">support site</a> where you can post questions and get assistance.</p>
+
+	<h3>About you</h3>
+	<p>
+		{{customer.customerFirstName}} {{customer.customerLastName}}<br />
+		{% if customer.customerCompany %}{{customer.customerCompany}}<br />{% endif %}
+		{% if customer.countryName %}{{customer.countryName}}<br />{% endif %}
+		{% if customer.customerStreetAdr1 %}{{customer.customerStreetAdr1}}<br />{% endif %}
+		{% if customer.customerStreetAdr2 %}{{customer.customerStreetAdr2}}<br />{% endif %}
+		{% if customer.customerLocality %}{{customer.customerLocality}}<br />{% endif %}
+		{% if customer.customerRegion %}{{customer.customerRegion}}<br />{% endif %}
+		{% if customer.customerPostalCode %}{{customer.customerPostalCode}}<br />{% endif %}
+		{% if customer.customerVATnumber %}{{customer.customerVATnumber}}{% endif %}
+	</p>
+
+
+	<style type="text/css">
+		.keys,
+		.keys li {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
+		}
+		.invoice {
+			width: 100%;
+		}
+		.invoice th,
+		.invoice td {
+			text-align: left;
+			border-bottom: 1px solid #cacbcc;
+			padding: 2px 5px;
+		}
+		.total {
+			text-align: right;
+		}
+	</style>
