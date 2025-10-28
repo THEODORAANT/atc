@@ -10,7 +10,7 @@
 
     $DB = DB::fetch();
 
-    $MailChimp = new MailChimp('b863badb6ebc8328ea992ba3c11312f2-us6');
+    $MailChimp = new MailChimp('key');
 
 	$seen_emails = array();
 
