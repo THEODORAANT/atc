@@ -33,13 +33,7 @@ echo "updtae first order date";
            if($customer['customerStripeID']==null){
             echo  $customer['customerEmail'];
 
-           // $cus=Stripe_Customers::search(['query' => 'email:$customer[\'customerEmail\']']);
-           /* $stripe = new \Stripe\StripeClient(
-              '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'
-            );
-           print_r( $stripe->customers->search([
-              'query' => 'email:\'theodora@mooblu.com\'',
-            ]));*/
+
              $cus2=Stripe_Customers::all(['email' =>  $customer["customerEmail"]]);
 
             // print_r($cus);
