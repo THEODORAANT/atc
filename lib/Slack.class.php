@@ -3,7 +3,7 @@
 class Slack
 {
 	//private static $url   = 'https://grabaperch.slack.com/services/hooks/incoming-webhook?token=JWBTx3TjrchBhBL4fckLx99v';
-	private static $url   ='https://hooks.slack.com/services/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';
+	private static $url   ='https://hooks.slack.com/services/xx/xxx/xxxxx';
 
 	public static function notify($message, $channel='#buys')
 	{
