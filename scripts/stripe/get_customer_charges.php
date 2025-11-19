@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-  c
+
 	use \Stripe\Charge as Stripe_Charge;
 
 
